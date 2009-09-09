@@ -42,11 +42,14 @@
 		this.options		  	= o || {};
 		this.dummy			  	= null;
 		this.interval	 	  	= null;
-		this.line_height	  	= this.options.lineHeight || parseInt(jQuery(e).css('line-height')) || parseInt(jQuery(e).css('font-size')) + 2 || 18;
+		this.line_height	  	= this.options.lineHeight || parseInt(jQuery(e).css('line-height'));
 		this.min_height		  	= this.options.minHeight || parseInt(jQuery(e).css('min-height'));
 		this.max_height		  	= this.options.maxHeight || parseInt(jQuery(e).css('max-height'));
 		this.textarea		  	= jQuery(e);
 		
+		if(isNaN(this.line_height))gc
+		  this.line_height = 18;
+
 		// Only one textarea activated at a time, the one being used
 		this.init();
 	};
